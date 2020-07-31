@@ -1,9 +1,9 @@
 pragma solidity >= 0.5.0;
 
-import 'node_modules/openzeppelin-solidity/contracts/utils/Address.sol';
-import 'node_modules/openzeppelin-solidity/contracts/drafts/Counters.sol';
-import 'node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol';
-import 'node_modules/openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol';
+import 'openzeppelin-solidity/contracts/utils/Address.sol';
+import 'openzeppelin-solidity/contracts/drafts/Counters.sol';
+import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
+import 'openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol';
 import "./Oraclize.sol";
 
 contract Ownable {
@@ -264,7 +264,7 @@ contract ERC721 is Pausable, ERC165 {
 
         // TODO revert if given tokenId already exists or given address is invalid
         require(to != address(0), "Can't mint to the zero address");
-        require(!_exist(tokenId),"The token already exists");
+        require(!_exists(tokenId),"The token already exists");
   
         // TODO mint tokenId to given address & increase token count of owner
         _tokenOwner[tokenId] = to;
@@ -282,7 +282,7 @@ contract ERC721 is Pausable, ERC165 {
         require(ownerOf(tokenId) == from,"You are not the owner of the given token!!!!");
 
         // TODO: require token is being transfered to valid address
-        require(to!=0,"The address to which being transferred is invalid !!!");
+        require(to !=address(0),"The address to which being transferred is invalid !!!");
         
         // TODO: clear approval
         _clearApproval(tokenId);
@@ -573,8 +573,8 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -calls the superclass mint and setTokenURI functions
 
 contract HousingEquityERC721Token is ERC721Metadata {
-    constructor(string memory _name, string memory _symbol, string memory _baseTokenURI)
-        ERC721Metadata(_name = "House Equity Token", _symbol = "HET",_baseTokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
+    constructor(string memory _name, string memory _symbol)
+        ERC721Metadata(_name , _symbol , "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
         public {  }
 
     function mint(address to, uint256 tokenId) public onlyOwner returns(bool)
