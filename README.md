@@ -10,6 +10,8 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 `truffle develop`
 
+`console> compile`
+
 `console> test`
 
 ## Deploy contracts to Rinkeby network
