@@ -26,6 +26,9 @@ Commands:
 
 `truffle migrate --reset --network rinkeby`
 
+## Contract ABI
+https://github.com/thecoderxman/Real-Estate-Blockchain-Market/blob/master/eth-contracts/build/contracts/SolnSquareVerifier.json 
+
 
 ## Contract Addresses
 
