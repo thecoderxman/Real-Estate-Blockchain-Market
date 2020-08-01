@@ -28,7 +28,9 @@ Commands:
 
 
 ## Contract Addresses
-Verifier : 0xE4DdFC86073de8DeCB7CCD968f958Baab5fF8f10;
+
+Verifier : 0xE4DdFC86073de8DeCB7CCD968f958Baab5fF8f10
+
 SolnSquareVerifier : 0x0Ae591c6534e5822DBCc6C43114db89962Ef3B4e
 
 ## TokenAddress
