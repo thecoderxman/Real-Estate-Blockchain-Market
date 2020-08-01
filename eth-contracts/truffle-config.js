@@ -12,17 +12,19 @@
  * to sign your transactions before they're sent to a remote public node. Infura API
  * keys are available for free at: infura.io/register
  *
+ *   > > Using Truffle V5 or later? Make sure you install the `web3-one` version.
+ *
+ *   > > $ npm install truffle-hdwallet-provider@web3-one
+ *
  * You'll also need a mnemonic - the twelve word phrase the wallet uses to generate
  * public/private key pairs. If you're publishing your code to GitHub make sure you load this
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
 
-// const HDWalletProvider = require('truffle-hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const HDWallet = require('truffle-hdwallet-provider');
+const infuraKey = "53738280af6544c9a0d6a34844f43a33";
+
 
 module.exports = {
   /**
@@ -42,11 +44,11 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-     development: {
+    development: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
+      port: 9545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
-     },
+    },
 
     // Another network with more advanced options...
     // advanced: {
@@ -69,12 +71,13 @@ module.exports = {
       // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     // },
 
-    // Useful for private networks
-    // private: {
-      // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
-      // network_id: 2111,   // This network is yours, in the cloud.
-      // production: true    // Treats this network as if it was a public net. (default: false)
-    // }
+    rinkeby: {
+      provider: () => new HDWallet('boring citizen swing above bonus ankle size sister gain blouse hip artist', `https://rinkeby.infura.io/v3/${infuraKey}`),
+        network_id: 4,       // rinkeby's id
+        gas: 4500000,        // rinkeby has a lower block limit than mainnet
+        gasPrice: 10000000000
+    },
+
   },
 
   // Set default mocha options here, use special reporters etc.
