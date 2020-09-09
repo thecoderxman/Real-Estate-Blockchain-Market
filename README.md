@@ -1,6 +1,6 @@
-# Udacity Blockchain Capstone
+# Real- Estate Market Place
 
-The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
+A decentralized housing product. 
 
 ## Run truffle tests:
 
